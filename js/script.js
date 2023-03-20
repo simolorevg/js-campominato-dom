@@ -82,6 +82,7 @@ function startGame() {
         numberGrid.append(createGridNumber(x));// lo inserisco all'interno della griglia genitore
         if (isBomb(x)) {
             gridItemNumber.addEventListener('click', redNumber);//al click lo sfondo diventa rosso
+            gridItemNumber.addEventListener('click', playSound);
             gridItemNumber.addEventListener('click', loseTheGame);
         } else {
             gridItemNumber.addEventListener('click', greenNumber);//al click faccio diventare lo sfondo della cella verde
@@ -99,7 +100,11 @@ function winTheGame() {
         userClick++;
     }
 }
+function playSound(){
+    audioEffect.play();
+}
 ///////////////////////////////PROGRAM CODE
+alert('sono presenti effetti sonori, si prega di regolare il volume o disattivarlo');
 const numberGrid = document.getElementById('number-grid');//creo la variabile che mi indica l'elemento che conterrà i numero nella griglia
 const containerNumber = document.getElementById('containerNum');//creo la variabile che conterrà tutta la griglia
 let gridItemNumber;//questa var mi serve sia per la creazione del div che per il controllo
@@ -108,6 +113,7 @@ let bombs = generateBombs(100);
 console.log(bombs);
 let userClick = 0;
 let numbersOfClick;
+let audioEffect = document.getElementById('audio-effect');
 const playBtn = document.getElementById('start-game');
 playBtn.addEventListener('click', startGame);
 
