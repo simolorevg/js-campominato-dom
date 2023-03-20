@@ -36,6 +36,12 @@ body{
 .green{
     background-color: green;
     color: white;
+    pointer-events: none;
+}
+.red{
+    background-color: red;
+    color: white;
+    pointer-events: none;
 }
 .hide{
     display: none;

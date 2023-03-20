@@ -6,16 +6,6 @@
 function greenNumber() {
     return this.classList.toggle('green');
 }
-function isBomb(number) {
-    let find = false;
-    if (bombs.includes(number)) {//se il numero è contenuto nell'array delle bombe
-        find = true;//la variabile è true e quindi il numero fa parte delle bombe
-    }
-    return find;
-}
-function bombAlert() {
-    return alert('hai preso una bomba');
-}
 /**
  * Descrizione: quando viene avviato, mostra a schermo il suo contenuto
  * @param {string}
@@ -24,6 +14,19 @@ function bombAlert() {
 function alertNumber() {
     let numberContent = this.innerText;
     return console.log(numberContent);
+}
+function isBomb(number) {
+    let find = false;
+    if (bombs.includes(number)) {//se il numero è contenuto nell'array delle bombe
+        find = true;//la variabile è true e quindi il numero fa parte delle bombe
+    }
+    return find;
+}
+function bombAlert() {
+    return console.log('hai preso una bomba');
+}
+function redNumber(){
+    return this.classList.toggle('red');
 }
 /**
  * Descrizione: serve per poter inserire automaticamente i numeri all'interno della griglia
@@ -57,6 +60,7 @@ function startGame() {
         gridNumber = createGridNumber(x);//eseguo la funzione createGridNumber per ogni elemento dell'array
         numberGrid.append(gridNumber);// lo inserisco all'interno della griglia genitore
         if(isBomb(x)){
+            gridNumber.addEventListener('click', redNumber);
             gridNumber.addEventListener('click', bombAlert);
         }else{
             gridNumber.addEventListener('click', greenNumber);//al click faccio diventare lo sfondo della cella verde
