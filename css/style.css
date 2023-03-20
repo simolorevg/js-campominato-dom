@@ -6,12 +6,25 @@
 }
 /*COMMON*/
 body{
-    background-color: lightcoral;
+    background-color: #33673B;
+    font-family: 'Tilt Warp', cursive;
 }
 /*LAYOUT*/
+/*HEADER*/
+.navsection{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #9A6D38;
+    gap: 10px;
+}
+#start-game,
+#select-difficult{
+    padding: 5px 10px;
+}
+/*MAIN*/
 .container{
     width: 800px;
-    height: 800px;
     margin: 0 auto;
     display: flex;
     justify-content: center;

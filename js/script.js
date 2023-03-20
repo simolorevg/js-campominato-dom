@@ -90,7 +90,7 @@ function startGame() {
     }
 }
 function loseTheGame() {
-    alert('hai perso');
+    alert('HAI PERSO, RICARICA LA PAGINA');
 }
 function winTheGame() {
     if (userClick === numbersOfClick) {
