@@ -32,7 +32,11 @@ body{
     align-items: center;
     border: 2px solid white;
 }
+/*HYPERCUSTOM STYLE*/
 .green{
     background-color: green;
     color: white;
+}
+.hide{
+    display: none;
 }

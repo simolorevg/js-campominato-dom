@@ -26,11 +26,17 @@ function createGridNumber(a){
     gridItemNumber.classList.add('grid-item');//aggiungo al div la classe grid-item
     return gridItemNumber;//consegno come risultato l'elemento terminato
 }
-///codice del programma
+function startGame(){
+    containerNumber.classList.remove('hide');
+}
+///////////////////////////////PROGRAM CODE
 const numberGrid = document.getElementById('number-grid');//creo l'elemento che conterrà i numero nella griglia
-console.log(numberGrid);
+const containerNumber = document.getElementById('containerNum');
+containerNumber.classList.add('hide');
 let gridNumber;//questa variabile mi servirà sia per l'inserimento dinamico dei numeri, ma anche per la visione del numero al click più tardi
 //inizio l'inserimento dinamico degli elementi
+const playBtn = document.getElementById('start-game');
+playBtn.addEventListener('click', startGame);
 for(let x = 1; x <= 100; x++){
     gridNumber = createGridNumber(x);//eseguo la funzione createGridNumber per ogni elemento dell'array
     gridNumber.addEventListener('click', greenNumber);//al click faccio diventare lo sfondo della cella verde
