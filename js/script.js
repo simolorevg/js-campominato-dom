@@ -57,8 +57,8 @@ function generateBombs(maxNumber) {
 }
 function startGame() {
     let blockNumber;
-    let difficultSelectedInput = document.getElementById('select-difficult');
-    let difficultSelected = difficultSelectedInput.value;
+    let difficultSelectedInput = document.getElementById('select-difficult');//individuo l'elemento
+    let difficultSelected = difficultSelectedInput.value;//
     switch (difficultSelected) {
         case 'easy':
             blockNumber = 100;
@@ -71,7 +71,7 @@ function startGame() {
         case 'difficult':
             blockNumber = 49;
             break;
-            
+
         default:
             break;
     }
