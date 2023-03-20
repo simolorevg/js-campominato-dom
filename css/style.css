@@ -1,0 +1,38 @@
+/*RESET*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*COMMON*/
+body{
+    background-color: lightcoral;
+}
+/*LAYOUT*/
+.container{
+    width: 800px;
+    height: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+#number-grid{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.grid-item{
+    width: calc(800px / 10 - 4px);
+    height: calc((800px / 10));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+}
+.green{
+    background-color: green;
+    color: white;
+}
