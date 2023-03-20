@@ -15,7 +15,6 @@ function alertNumber() {
     let numberContent = this.innerText;
     return console.log(numberContent);
 }
-
 /**
  * Description
  * @param {number} number
@@ -28,15 +27,7 @@ function isBomb(number) {
     }
     return find;
 }
-
-/**
- * Description
- * @returns {string}
- */
-function bombAlert() {
-    return console.log('hai preso una bomba');
-}
-function redNumber(){
+function redNumber() {
     return this.classList.toggle('red');
 }
 /**
@@ -65,25 +56,57 @@ function generateBombs(maxNumber) {
     return bombsArray;
 }
 function startGame() {
+    let blockNumber;
+    let difficultSelectedInput = document.getElementById('select-difficult');
+    let difficultSelected = difficultSelectedInput.value;
+    switch (difficultSelected) {
+        case 'easy':
+            blockNumber = 100;
+            break;
+
+        case 'medium':
+            blockNumber = 81;
+            break;
+
+        case 'difficult':
+            blockNumber = 49;
+            break;
+            
+        default:
+            break;
+    }
     containerNumber.classList.remove('hide');//mostro la griglia
     numberGrid.innerHTML = "";//svuoto il contenitore dei numeri per evitare la moltiplicazione selvaggia
-    let numberOfClick = 100 - 16;//miserve per contatore di click se si arriva alla cifra riportata, allora l'utente ha vinto
-    let userClick =0;
-    for (let x = 1; x <= 100; x++) {//li inserisco nel numberGrid
+    for (let x = 1; x <= blockNumber; x++) {//li inserisco nel numberGrid
         numberGrid.append(createGridNumber(x));// lo inserisco all'interno della griglia genitore
-        if(isBomb(x)){
-            gridItemNumber.addEventListener('click', redNumber);
-        }else{
+        if (isBomb(x)) {
+            gridItemNumber.addEventListener('click', redNumber);//al click lo sfondo diventa rosso
+            gridItemNumber.addEventListener('click', loseTheGame);
+        } else {
             gridItemNumber.addEventListener('click', greenNumber);//al click faccio diventare lo sfondo della cella verde
+            gridItemNumber.addEventListener('click', winTheGame);
         }
+    }
+}
+function loseTheGame() {
+    alert('hai perso');
+}
+function winTheGame() {
+    if (userClick === numbersOfClick) {
+        alert('hai vinto');
+    } else {
+        userClick++;
     }
 }
 ///////////////////////////////PROGRAM CODE
 const numberGrid = document.getElementById('number-grid');//creo la variabile che mi indica l'elemento che conterrà i numero nella griglia
 const containerNumber = document.getElementById('containerNum');//creo la variabile che conterrà tutta la griglia
+let gridItemNumber;//questa var mi serve sia per la creazione del div che per il controllo
 containerNumber.classList.add('hide');
 let bombs = generateBombs(100);
 console.log(bombs);
+let userClick = 0;
+let numbersOfClick = 100 - 16;
 const playBtn = document.getElementById('start-game');
 playBtn.addEventListener('click', startGame);
 

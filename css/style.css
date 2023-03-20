@@ -46,3 +46,6 @@ body{
 .hide{
     display: none;
 }
+.no-clickable{
+    pointer-events: none;
+}
