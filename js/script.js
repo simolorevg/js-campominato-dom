@@ -68,13 +68,14 @@ function startGame() {
             blockNumber = 81;
             break;
 
-        case 'difficult':
+        case 'hard':
             blockNumber = 49;
             break;
 
         default:
             break;
     }
+    numbersOfClick = blockNumber - 16;
     containerNumber.classList.remove('hide');//mostro la griglia
     numberGrid.innerHTML = "";//svuoto il contenitore dei numeri per evitare la moltiplicazione selvaggia
     for (let x = 1; x <= blockNumber; x++) {//li inserisco nel numberGrid
@@ -93,7 +94,7 @@ function loseTheGame() {
 }
 function winTheGame() {
     if (userClick === numbersOfClick) {
-        alert('hai vinto');
+        alert('hai vinto, punteggio: '+ numbersOfClick);
     } else {
         userClick++;
     }
@@ -106,7 +107,7 @@ containerNumber.classList.add('hide');
 let bombs = generateBombs(100);
 console.log(bombs);
 let userClick = 0;
-let numbersOfClick = 100 - 16;
+let numbersOfClick;
 const playBtn = document.getElementById('start-game');
 playBtn.addEventListener('click', startGame);
 
