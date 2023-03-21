@@ -82,7 +82,8 @@ function startGame() {
         numberGrid.append(createGridNumber(x));// lo inserisco all'interno della griglia genitore
         if (isBomb(x)) {
             gridItemNumber.addEventListener('click', redNumber);//al click lo sfondo diventa rosso
-            gridItemNumber.addEventListener('click', loseTheGame);
+            gridItemNumber.addEventListener('click',playSound);//emette suono esplosione
+            gridItemNumber.addEventListener('click', loseTheGame);//invia alert hai perso
         } else {
             gridItemNumber.addEventListener('click', greenNumber);//al click faccio diventare lo sfondo della cella verde
             gridItemNumber.addEventListener('click', winTheGame);
@@ -101,7 +102,9 @@ function winTheGame() {
         userClick++;
     }
 }
-
+function playSound(){
+    audioEffect.play();
+}
 ///////////////////////////////PROGRAM CODE
 const numberGrid = document.getElementById('number-grid');//creo la variabile che mi indica l'elemento che conterrà i numero nella griglia
 const containerNumber = document.getElementById('containerNum');//creo la variabile che conterrà tutta la griglia
